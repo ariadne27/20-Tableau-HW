@@ -1,0 +1,33 @@
+CitiBike Usage Analysis
+Madeline Starr
+Rutgers Data Science Bootcamp (May-Oct 2019)
+
+NOTES: 
+- Data was pulled from June and December of 2017 and 2018 to compare seasonality
+- Distance traveled was calculated based on starting station and ending station latitude and longitude
+	- Since those values are impacted by the curvature of the earth, the following calculation was used:
+	- 3959 * ACOS ( SIN(RADIANS([Start Station Latitude])) * SIN(RADIANS([End Station Latitude])) + 
+	  COS(RADIANS([Start Station Latitude])) * COS(RADIANS([End Station Latitude])) * 
+	  COS(RADIANS([End Station Longitude]) - RADIANS([Start Station Longitude])))
+Phenomena:
+1 - What impacts distance traveled and time traveled?
+	- Possible factors: time of year, station location, and gender
+		- Time of year: has a larger impact on average trip duration (19.10 mins in summer and 13.27 mins in winter) than is does on distance
+			- People pedal faster when they are colder
+		- Station location: stations on the outer edges of Manhattan travel further than most other stations
+			- Stations near Central Park and the Statue of Liberty have longer trip duration over less distance, suggesting people are using the bikes for sight-seeing rather than commuting
+		- Gender: While men and women travel approximately the same average distance, men have a shorter duration of travel
+			- On average, men have longer legs, which allows for more power and faster bike movement while pedaling.  
+			- Men and women are using the bikes similarly, but some physiological differences impact their overall travel time
+2 - What impact does age have on bike-usage?
+	- Areas of consideration: distance traveled, generation, and starting location
+		- Distance traveled: Between the ages of 25 and 64, the distance traveled stays relatively flat, with the exception of 55 year olds, who have the longest average distance traveled	
+			- This may be due to an increased amount of free-time, as well as medical advice regarding increased activity
+			- After age 65, the distance traveled drops off considerably
+		- Generation: Millennials are the heaviest users of the bikes, with the most trips.
+			- The trip duration of Millennials, Gen X, and Baby Boomers is relatively similar
+			- Gen Z has the fewest trips by far, but they travel further
+				- Fewer members of this generation are eligible to use the bikes, but when they do, they may be using them as a cost-efficient way to get to jobs
+		- Starting location: Younger riders are more likely to start their trips in the outer boroughs and Harlem, while the user base gets older in lower Manhattan
+			- The starting location is most likely to be based on a user's home or work location, so younger riders are living and working in more affordable areas.  
+	
